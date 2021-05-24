@@ -1,0 +1,65 @@
+/*!
+ * Dark Mode Switch v1.0.1 (https://github.com/coliff/dark-mode-switch)
+ * Copyright 2021 C.Oliff
+ * Licensed under MIT (https://github.com/coliff/dark-mode-switch/blob/main/LICENSE)
+ */
+
+[data-theme="dark"] {
+  background-color: #111 !important;
+  color: #eee;
+}
+
+[data-theme="dark"] .bg-black {
+  background-color: #fff !important;
+}
+
+[data-theme="dark"] .bg-dark {
+  background-color: #eee !important;
+}
+
+[data-theme="dark"] .bg-light {
+  background-color: #222 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #000 !important;
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: #000 !important;
+}
+
+/* sidebar dark mode */
+[data-theme="dark"] .btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: 0;
+}
+[data-theme="dark"] .btn-toggle:hover,
+[data-theme="dark"] .btn-toggle:focus {
+  color: rgb(255, 255, 255);
+  background-color: #1e7b5f;
+}
+[data-theme="dark"] .btn-toggle[aria-expanded="true"] {
+  color: rgb(255, 255, 255);
+}
+[data-theme="dark"] .btn-toggle-nav a:hover,
+[data-theme="dark"] .btn-toggle-nav a:focus {
+  background-color: #1e7b5f;
+}
+[data-theme="dark"] .link-dark {
+  color: rgb(255, 255, 255, 0.5);
+}
+[data-theme="dark"] .btn-toggle::before, 
+[data-theme="dark"] .bi {
+  filter: invert(100%);
+}
+
+
+[data-theme="dark"] .fw-semibold {
+  color: rgb(255, 255, 255);
+}
