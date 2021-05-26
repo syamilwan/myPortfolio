@@ -27,6 +27,9 @@
         <link href="{{ URL::asset('css/sidebar.css')}}" rel="stylesheet">
 
         <style>
+            html {
+                font-size: 125% !important;
+            }
             .bd-placeholder-img {
                 font-size: 1.125rem;
                 text-anchor: middle;
@@ -43,7 +46,16 @@
         </style>
 
     </head>
-    <body>
-        @include('layouts.sidebar')
+    <body style="overflow: scroll;">
+        <div class="container-fluid mh-100">
+            <div class="row">
+                <div class="col-md-2 bg-light">
+                    @include('layouts.sidebar')
+                </div>
+                <div class="col-md-10">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </body>
 </html>
