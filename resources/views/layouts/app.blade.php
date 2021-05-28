@@ -30,6 +30,14 @@
 
         <!-- Custom styles for sidebar template -->
         <link href="{{ URL::asset('css/sidebar.css')}}" rel="stylesheet">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <style>
             html {
@@ -54,11 +62,11 @@
     <body style="overflow: scroll;">
         <div class="container-fluid mh-100 gx-0" style="width: 100%; height: auto;">
             <div class="row">
-                <div class="col-xl-2 bg-light">
+                <div class="col-xl-2 bg-light border border-2">
                     @include('layouts.sidebar')
                 </div>
                 <div class="col-xl-10 align-self-center mx-auto" style="width: auto; height: auto;">
-                    <div class="container bg-light">
+                    <div class="container bg-light border border-2 py-3">
                         @yield('content')
                     </div>
                 </div>

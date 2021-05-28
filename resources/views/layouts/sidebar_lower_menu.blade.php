@@ -8,7 +8,13 @@
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark rounded">New...</a></li>
             <li><a href="#" class="link-dark rounded">Profile</a></li>
-            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="route('logout')"onclick="event.preventDefault(); this.closest('form').submit();" class="link-dark rounded">
+                        Sign out </a>
+                </form>
+            </li>
         </ul>
     </div>
     @endauth

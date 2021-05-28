@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    @auth
-        test
-    @endauth
+        
+        @auth
+            test
+        @endauth
 
     @guest
     <div class="container my-5 py-4 text-center">
@@ -18,12 +18,12 @@
 
         <div class="row my-2 pt-3">
             <ul class="btn-toggle-nav list-unstyled pb-1 d-inline-flex justify-content-center">
-                <li><a data-bs-toggle="modal" data-bs-target="#aboutModal" class="link-dark rounded border border-3 pt-0">About</a></li>
-                <li><a data-bs-toggle="modal" data-bs-target="#resumeModal" class="link-dark rounded border border-3 pt-0">Resume</a></li>
-                <li><a data-bs-toggle="modal" data-bs-target="#contactModal" class="link-dark rounded border border-3 pt-0">Contact</a></li>
+                <li><a data-bs-toggle="modal" data-bs-target="#aboutModal" class="link-dark rounded border border-3">About</a></li>
+                <li><a data-bs-toggle="modal" data-bs-target="#resumeModal" class="link-dark rounded border border-3">Resume</a></li>
+                <li><a data-bs-toggle="modal" data-bs-target="#contactModal" class="link-dark rounded border border-3">Contact</a></li>
             </ul>
         </div>
-
+    </div>
         @include('home_modals')
 
     @endguest
