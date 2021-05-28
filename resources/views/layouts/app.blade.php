@@ -14,6 +14,11 @@
         <!-- Bootstrap coliff/dark-mode-switch template-->
         <link href="{{ URL::asset('css/dark-mode.css')}}" rel="stylesheet">
 
+        <!-- PDFObject -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.5/pdfobject.min.js"></script>
+        <!-- Too check PDFObject support on the browser, uncomment code below and check the console log -->
+        <!-- <script> if(PDFObject.supportsPDFs){ console.log("Yay, this browser supports inline PDFs."); } else { console.log("Boo, inline PDFs are not supported by this browser"); } </script> -->
+        
         <!-- Favicons 
         <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
         <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -47,13 +52,15 @@
 
     </head>
     <body style="overflow: scroll;">
-        <div class="container-fluid mh-100">
+        <div class="container-fluid mh-100 gx-0" style="width: 100%; height: auto;">
             <div class="row">
-                <div class="col-md-2 bg-light">
+                <div class="col-xl-2 bg-light">
                     @include('layouts.sidebar')
                 </div>
-                <div class="col-md-10">
-                    @yield('content')
+                <div class="col-xl-10 align-self-center mx-auto" style="width: auto; height: auto;">
+                    <div class="container bg-light">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
         </div>
