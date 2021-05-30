@@ -25,11 +25,11 @@
 </li>
 <li class="mb-1">
     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-    Orders
+    Others
     </button>
     <div class="collapse" id="orders-collapse">
     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li><a href="#" class="link-dark rounded align-middle">New</a></li>
+        <li><a href="/userList" class="link-dark rounded">User List</a></li>
         <li><a href="#" class="link-dark rounded">Processed</a></li>
         <li><a href="#" class="link-dark rounded">Shipped</a></li>
         <li><a href="#" class="link-dark rounded">Returned</a></li>
