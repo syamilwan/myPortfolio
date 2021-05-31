@@ -8,7 +8,7 @@
                 <span class="fs-1 fw-semibold">&nbsp; Hi!</span>
             </a>
         </div>
-        <br><span class="fs-5 fw-semibold">I'm , a fresh graduate and this is my Portfolio.</span>
+        <br><span class="fs-5 fw-semibold">I'm {{ auth()->user()->name}}<sup style="font-size: 65%;">{{ auth()->id() }}</sup>, this is my Dashboard.</span>
 
         <div class="row my-2 pt-3">
             <ul class="btn-toggle-nav list-unstyled pb-1 d-inline-flex justify-content-center">
