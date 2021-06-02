@@ -8,15 +8,7 @@
                 <span class="fs-1 fw-semibold">&nbsp; Hi!</span>
             </a>
         </div>
-        <br><span class="fs-5 fw-semibold">I'm {{ auth()->user()->name}}<sup style="font-size: 65%;">{{ auth()->id() }}</sup>, this is my Dashboard.</span>
+        <br><span class="fs-5 fw-semibold">Dashboard</span>
 
-        <div class="row my-2 pt-3">
-            <ul class="btn-toggle-nav list-unstyled pb-1 d-inline-flex justify-content-center">
-                <li><a data-bs-toggle="modal" data-bs-target="#aboutModal" class="link-dark rounded border border-3">About</a></li>
-                <li><a data-bs-toggle="modal" data-bs-target="#resumeModal" class="link-dark rounded border border-3">Resume</a></li>
-                <li><a data-bs-toggle="modal" data-bs-target="#contactModal" class="link-dark rounded border border-3">Contact</a></li>
-            </ul>
-        </div>
     </div>
-    @include('home_modals')
 @endsection

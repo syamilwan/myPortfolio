@@ -15,18 +15,22 @@ use App\Http\Controllers\UserController;
 |
 */
 
+//Home
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/userList', [UserController::class, 'index']);
-
+//Misc
 Route::get('/downloadResume', function() {
     return response()->download('resume.pdf');
 });
 
+//Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth']);
+
+//Others
+Route::get('/userList', [UserController::class, 'index']);
 
 require __DIR__.'/auth.php';

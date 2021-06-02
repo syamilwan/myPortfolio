@@ -1,4 +1,6 @@
-<li class="border-top my-3"></li>
+<li class="border-top my-3">
+<!-- <small id="clock"></small> -->
+</li>
 <li class="mb-1">
     @auth
     <button class="btn btn-toggle align-items-bottom rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
@@ -35,3 +37,16 @@
         <script src="{{ URL::asset('js/dark-mode-switch.min.js')}}"></script>
     </div>
 </li>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var timestamp = '<?=time();?>';
+    function updateTime(){
+        $('#clock').html(Date(timestamp));
+        timestamp++;
+    }
+    $(function(){
+        setInterval(updateTime, 1000);
+    });
+</script>
