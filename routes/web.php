@@ -32,5 +32,6 @@ Route::get('/dashboard', function () {
 
 //Others
 Route::get('/userList', [UserController::class, 'index']);
+Route::post('/uploadProfilePicture', [UserController::class, 'uploadProfilePicture'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -14,32 +16,45 @@ class UserController extends Controller
         return view('user_list', compact('users'));
     }
 
-    public function create()
-    {
-        //
-    }
-    public function store(Request $request)
-    {
-        //
+    public function uploadProfilePicture(Request $request){
+
+        $this->validate($request,[
+            'profilePicture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        if($request->file('profilePicture')){
+            try{
+                $user = $request->user();
+
+                $old_file = str_replace('storage', 'public', $user->profile_picture);
+                $path = '/public/' .$request->user()->id .'/profile_picture';
+                $new_file = $request->file('profilePicture')->store( $path );
+
+                if($old_file){
+                    Storage::delete($old_file);
+                }
+
+                $new_path = str_replace('public', 'storage', $new_file);
+                $user->profile_picture = $new_path;
+                $user->save();
+
+                return redirect('dashboard');
+            }
+            catch (Exception $e){
+                alert('error');
+            }
+        }
     }
 
-    public function show(User $user)
-    {
-        //
-    }
-
-    public function edit(User $user)
-    {
-        //
-    }
-
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    public function destroy(User $user)
-    {
-        //
-    }
 }
+
+
+//FILE UPLOAD NOTES
+// $file = $request->file('profilePicture')->getClientOriginalName();
+// $fileName = pathinfo($file, PATHINFO_FILENAME);
+// $fileType = $request->file('profilePicture')->extension(); //pathinfo($file, PATHINFO_EXTENSION);
+// $fileSize = $request->file('profilePicture')->getSize();        
+// $path = $request->file('profilePicture')->store(
+//     'profile_picture/'.$request->user()->id
+// );
+// $user = $request->user();

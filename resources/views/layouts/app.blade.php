@@ -60,12 +60,12 @@
 
     </head>
     <body style="overflow: scroll;">
-        <div class="container-fluid mh-100 gx-0" style="width: 100%; height: auto;">
+        <div class="container-fluid mh-100" style="width: 100%; height: auto;">
             <div class="row">
                 <div class="col-xl-2 bg-light border border-2">
                     @include('layouts.sidebar')
                 </div>
-                <div class="col-xl-10 align-self-center mx-auto" style="width: auto; height: auto;">
+                <div class="col-xl-10 align-self-center mx-auto">
                     <div class="container bg-light border border-2 py-3">
                         @yield('content')
                     </div>

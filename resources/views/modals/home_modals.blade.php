@@ -79,19 +79,21 @@
 		<h5 class="modal-title" id="exampleModalLabel">Profile Picture</h5>
 		<a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
 	</div>
-	<div class="modal-body">
-		<div class="container-fluid" id="profilePicture">
-			Change Profile Picture	
+		<div class="modal-body">
+			<div id="profilePicture" class="container-fluid d-flex justify-content-center" >
+				@auth
+                    <img class="thumbnail-box-shadow" src="{{ URL::asset('image/default-profile-pic.jpg')}}" alt="profile picture"/>
+                @else
+                    <img class="thumbnail-box-shadow" src="{{ URL::asset('image/default-profile-pic.jpg')}}" alt="profile picture"/>
+                @endauth 
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</a>
 		</div>
 	</div>
-	<div class="modal-footer">
-		<a type="button" class="btn btn-outline-success" href="/downloadResume">Download</a>
-		<a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
-	</div>
-	</div>
 </div>
 </div>
-
 
 <script>
 @auth
