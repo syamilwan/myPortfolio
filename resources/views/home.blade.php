@@ -6,7 +6,7 @@
             <div class="d-flex align-items-center pb-2 my-3 link-dark text-decoration-none">
                 <a data-bs-toggle="modal" data-bs-target="#profilePictureModal" title="View Image"> <!-- buat tooltip -->
                 @auth
-                    <img class="rounded-circle thumbnail-box-shadow" src="{{ URL::asset('image/default-profile-pic.jpg')}}" alt="profile picture" width="120" height="120"/>
+                    <img class="rounded-circle thumbnail-box-shadow" src="{{ URL::asset(auth()->user()->profile_picture)}}" alt="profile picture" width="120" height="120"/>
                 @else
                     <img class="rounded-circle thumbnail-box-shadow" src="{{ URL::asset('image/default-profile-pic.jpg')}}" alt="profile picture" width="120" height="120"/>
                 @endauth 
@@ -25,8 +25,8 @@
         <div class="row my-2 pt-3">
             <ul class="btn-toggle-nav list-unstyled pb-1 d-inline-flex justify-content-center">
                 <li><a data-bs-toggle="modal" data-bs-target="#aboutModal" class="link-dark rounded border border-3">About</a></li>
-                <li><a data-bs-toggle="modal" data-bs-target="#resumeModal" class="link-dark rounded border border-3">Resume</a></li>
                 <li><a data-bs-toggle="modal" data-bs-target="#contactModal" class="link-dark rounded border border-3">Contact</a></li>
+                <li><a onclick="showResume()" data-bs-toggle="modal" data-bs-target="#resumeModal" class="link-dark rounded border border-3">Resume</a></li>
             </ul>
         </div>
     </div>

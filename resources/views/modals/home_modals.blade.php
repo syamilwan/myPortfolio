@@ -29,9 +29,7 @@
 		<a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
 	</div>
 	<div class="modal-body">
-		<div class="container-fluid" id="resume">
-			
-		</div>
+		<div class="container-fluid" id="resume"></div>
 	</div>
 	<div class="modal-footer">
 		<a type="button" class="btn btn-outline-success" href="/downloadResume">Download</a>
@@ -82,7 +80,7 @@
 		<div class="modal-body">
 			<div id="profilePicture" class="container-fluid d-flex justify-content-center" >
 				@auth
-                    <img class="thumbnail-box-shadow" src="{{ URL::asset('image/default-profile-pic.jpg')}}" alt="profile picture"/>
+                    <img class="thumbnail-box-shadow" src="{{ URL::asset(auth()->user()->profile_picture)}}" alt="profile picture"/>
                 @else
                     <img class="thumbnail-box-shadow" src="{{ URL::asset('image/default-profile-pic.jpg')}}" alt="profile picture"/>
                 @endauth 
@@ -96,9 +94,13 @@
 </div>
 
 <script>
-@auth
-	PDFObject.embed("{{ URL::asset('')}}", "#resume", {height:"25rem"});
-@else
-	PDFObject.embed("{{ URL::asset('resume.pdf')}}", "#resume", {height:"25rem"});
-@endauth
+	function showResume(){
+		@auth
+			@if(!is_null(auth()->user()->resume))
+			PDFObject.embed("{{ URL::asset(auth()->user()->resume) }}", "#resume", {height:"25rem"});
+			@endif
+		@else
+			PDFObject.embed("{{ URL::asset('resume.pdf') }}", "#resume", {height:"25rem"});
+		@endauth
+	}
 </script>

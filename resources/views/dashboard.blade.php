@@ -15,21 +15,54 @@
                 <div class="row border-bottom pb-5">
                     <div class="col-sm-12">
                         <div class="fs-5">User Details</div>
-                        <div class="row d-flex justify-content-center align-items-center pb-2 my-3 link-dark text-decoration-none">
-                            <div class="col-sm-2">
+                        <div class="row d-flex justify-content-center pb-2 my-3 link-dark text-decoration-none">
+                            <div class="col-lg-2">
                                 <a data-bs-toggle="modal" data-bs-target="#profilePictureModal" title="View Image"> <!-- buat tooltip -->
-                                    <img class="rounded-circle thumbnail-box-shadow" src="{{ URL::asset(auth()->user()->profile_picture)}}" alt="profile picture" width="120" height="120"/>
+                                    <img src="{{ URL::asset(auth()->user()->profile_picture)}}" alt="profile picture" width="150" height="150" class="rounded-circle thumbnail-box-shadow mt-3"/>
                                 </a>
                             </div>
-                            <div class="col-sm-5">
-                                <div style="float:right;"> <a href="#" class="btn btn-outline-secondary py-0">Edit</a> </div>
-                                <div class="fs-6">Username : {{auth()->user()->name}}</div>
-                                <div class="fs-6">Email : {{auth()->user()->email}}</div>
+                            <div class="col-lg-10">
+                                    <div style="float:right;"> <a href="#" class="btn btn-outline-secondary py-0">Edit</a></div>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr></tr>
+                                            <tr>
+                                                <th scope="row">Username</th>
+                                                <td class="fs-6">: {{auth()->user()->name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Email</th>
+                                                <td class="fs-6">: {{auth()->user()->email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Address</th>
+                                                <td class="fs-6">: hardcode</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Address</th>
+                                                <td class="fs-6">: hardcode</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Address</th>
+                                                <td class="fs-6">: hardcode</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Address</th>
+                                                <td class="fs-6">: hardcode</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+                            <div class="fs-6 mt-4"><a data-bs-toggle="modal" data-bs-target="#resumeModal" onclick="showResume()" class="btn btn-outline-secondary rounded border border-3">Resume</a> </div>
                         </div>
                     </div>
                 </div>
-                <div class="row pb-5">
+                <div class="row py-3">
                     <div class="col-sm-6">
                         <div class="fs-5">Academic</div>
                     </div>

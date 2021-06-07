@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 
 //Others
 Route::get('/userList', [UserController::class, 'index']);
-Route::post('/uploadProfilePicture', [UserController::class, 'uploadProfilePicture'])->middleware(['auth']);
+Route::post('/changeProfilePicture', [UserController::class, 'changeProfilePicture'])->middleware(['auth']);
+Route::post('/changeResume', [UserController::class, 'changeResume'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
