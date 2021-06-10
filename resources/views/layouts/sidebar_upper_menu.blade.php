@@ -6,7 +6,6 @@
     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
         <li><a href="/" class="link-dark rounded">Overview</a></li>
         <li><a href="#" class="link-dark rounded">Coming Soon..</a></li>
-        <li><a href="#" class="link-dark rounded">Coming Soon..</a></li>
     </ul>
     </div>
 </li>
@@ -17,7 +16,7 @@
     <div class="collapse" id="dashboard-collapse">
     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
         <li><a href="/dashboard" class="link-dark rounded">Overview</a></li>
-        <li><a href="#" class="link-dark rounded">Academic</a></li>
+        <li><a href="#" class="link-dark rounded">Academics</a></li>
         <li><a href="#" class="link-dark rounded">Skills</a></li>
     </ul>
     </div>

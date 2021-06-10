@@ -76,6 +76,11 @@ class UserController extends Controller
         }
     }
 
+    public function downloadUserResume(Request $request){
+        return response()->download($request->user()->resume);
+    }
+
+
 }
 
 

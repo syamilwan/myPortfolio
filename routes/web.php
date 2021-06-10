@@ -19,20 +19,20 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('home');
 });
-
-//Misc
 Route::get('/downloadResume', function() {
     return response()->download('resume.pdf');
 });
+
 
 //Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth']);
+Route::post('/changeProfilePicture', [UserController::class, 'changeProfilePicture'])->middleware(['auth']);
+Route::post('/changeResume', [UserController::class, 'changeResume'])->middleware(['auth']);
+Route::get('/downloadUserResume', [UserController::class, 'downloadUserResume'])->middleware(['auth']);
 
 //Others
 Route::get('/userList', [UserController::class, 'index']);
-Route::post('/changeProfilePicture', [UserController::class, 'changeProfilePicture'])->middleware(['auth']);
-Route::post('/changeResume', [UserController::class, 'changeResume'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';
