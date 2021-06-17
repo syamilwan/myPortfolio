@@ -30,7 +30,7 @@ class AcademicController extends Controller
 
     public function view($academic_id)
     {
-        $academic = Academic::where('id', $academic_id)->get();
+        $academic = Academic::where('id', $academic_id)->first();
         return view('users.academics.modals.view_detail', compact('academic'));
     }
 
