@@ -64,7 +64,7 @@
                 </div>
                 <div class="row py-3">
                     <div class="col-sm-6">
-                        <div class="fs-5">Academic</div>
+                        <div class="fs-5">Academics</div>
                     </div>
                     <div class="col-sm-6">
                         <div class="fs-5">Skills</div>
