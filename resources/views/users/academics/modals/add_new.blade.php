@@ -6,7 +6,7 @@
 		<h5 class="modal-title" id="exampleModalLabel">Add Academic Details</h5> 
 		<a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
 	</div>
-    <form action="/academic/detail/ add" method="POST">
+    <form action="/academic/detail/add" method="POST">
         <div class="modal-body">
             @csrf
             <label for="institute">Institute</label> 

@@ -31,7 +31,7 @@
                     <td>{{$academic->edu_field}}</td>
                     <td> 
                         <a id="viewButton" data-attr="{{ route('academic.view', $academic->id) }}" class="btn btn-outline-secondary py-0"> View </a> <!-- data-bs-toggle="modal" data-bs-target="viewAcademicModal" not needed, uses jquery instead-->  
-                        <a id="editButton" data-attr="{{ route('academic.edit', $academic->id) }}" class="btn btn-outline-info py-0"> Edit </a>
+                        <a id="editButton" data-attr="{{ route('academic.edit', $academic->id) }}" class="btn btn-outline-secondary py-0"> Edit </a>
                         <form action="{{ route('academic.delete', $academic->id)}}" method="post">
                             @method('DELETE')
                             @csrf

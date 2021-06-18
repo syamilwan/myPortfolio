@@ -35,9 +35,22 @@ class AcademicController extends Controller
     }
 
     
-    public function edit(Request $request)
+    public function edit($academic_id)
     {
-        // dd('edit');
+        $academic = Academic::where('id', $academic_id)->first();
+        return view('users.academics.modals.edit_detail', compact('academic'));
+    }
+
+    public function update(Request $request)
+    {
+        $academic = Academic::find($request->id)->update([
+            'institute' => $request->institute,
+            'edu_stage' => $request->edu_stage,
+            'edu_field' => $request->edu_field,
+            'start_date' => $request->start_date, 
+            'end_date' => $request->end_date,
+        ]);
+        return redirect('academic');
     }
 
     public function delete($academic_id)

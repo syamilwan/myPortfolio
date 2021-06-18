@@ -39,7 +39,10 @@ Route::prefix('academic')->group(function () {
     Route::prefix('detail')->group(function () {
         Route::get('/{academic_id}', [AcademicController::class, 'view'])->middleware(['auth'])->name('academic.view');
         Route::post('/add', [AcademicController::class, 'add'])->middleware(['auth']);
-        Route::match(['put', 'patch'], '/{academic_id}', [AcademicController::class, 'edit'])->name('academic.edit');
+        Route::prefix('/edit')->group(function () {
+            Route::get('/{academic_id}', [AcademicController::class, 'edit'])->name('academic.edit');
+            Route::match(['put', 'patch'], '/{academic_id}', [AcademicController::class, 'update'])->name('academic.update');
+        });
         Route::delete('/{academic_id}', [AcademicController::class, 'delete'])->name('academic.delete');
     });
 });
