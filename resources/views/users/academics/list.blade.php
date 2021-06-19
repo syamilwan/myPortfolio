@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="card-body bg-white mx-3">
-        <div class="fs-6" style="float:right;"><a data-bs-toggle="modal" data-bs-target="#addAcademicModal" class="btn btn-outline-secondary rounded py-0">Add New</a> </div>
+        <div class="fs-6" style="float:right;"><a data-bs-toggle="modal" data-bs-target="#addAcademicModal" class="btn btn-outline-secondary rounded py-0"><i class="fas fa-plus"></i> <small> Add New </small></a> </div>
         <br/>
         <div>
         <table id="academic_table_list" class="table">
@@ -30,12 +30,12 @@
                     <td>{{$academic->edu_stage}}</td>
                     <td>{{$academic->edu_field}}</td>
                     <td> 
-                        <a id="viewButton" data-attr="{{ route('academic.view', $academic->id) }}" class="btn btn-outline-secondary py-0"> View </a> <!-- data-bs-toggle="modal" data-bs-target="viewAcademicModal" not needed, uses jquery instead-->  
-                        <a id="editButton" data-attr="{{ route('academic.edit', $academic->id) }}" class="btn btn-outline-secondary py-0"> Edit </a>
                         <form action="{{ route('academic.delete', $academic->id)}}" method="post">
                             @method('DELETE')
                             @csrf
-                            <input type="submit" value="Delete" class="btn btn-outline-danger py-0"/>
+                            <a id="viewButton" data-attr="{{ route('academic.view', $academic->id) }}" class="btn btn-outline-secondary py-0"> <i class="fas fa-eye fa-sm"></i> </a> <!-- data-bs-toggle="modal" data-bs-target="viewAcademicModal" not needed, uses jquery instead-->  
+                            <a id="editButton" data-attr="{{ route('academic.edit', $academic->id) }}" class="btn btn-outline-secondary py-0"> <i class="fas fa-edit fa-sm"></i> </a>
+                            <button type="submit" class="btn btn-outline-danger py-0"> <i class="fas fa-trash-alt fa-sm"></i></button>
                         </form>
                     </td>
                 </tr>
