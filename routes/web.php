@@ -25,9 +25,7 @@ Route::get('/downloadResume', function() {
 });
 
 //Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth']);
+Route::get('/dashboard', function () { return view('users.dashboard.view'); })->middleware(['auth']);
 Route::post('/changeProfilePicture', [UserController::class, 'changeProfilePicture'])->middleware(['auth']);
 Route::post('/changeResume', [UserController::class, 'changeResume'])->middleware(['auth']);
 Route::get('/downloadUserResume', [UserController::class, 'downloadUserResume'])->middleware(['auth']);

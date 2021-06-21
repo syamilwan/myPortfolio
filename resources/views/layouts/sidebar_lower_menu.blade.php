@@ -31,7 +31,7 @@
     </div>
     @endguest
     <div class="form-check form-switch">
-        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+        <label class="custom-control-label" for="darkSwitch">DarkMode</label>
         <input type="checkbox" class="form-check-input" id="darkSwitch" />
         <script src="{{ URL::asset('js/dark-mode-switch.min.js')}}"></script>
     </div>

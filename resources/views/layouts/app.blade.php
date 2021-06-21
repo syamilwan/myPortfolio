@@ -44,21 +44,64 @@
                 font-size: 3.5rem;
                 }
             }
+            /* The sidebar menu */
+            .sidebar {
+                height: 100%; /* 100% Full-height */
+                width: 270px; /* 0 width - change this with JavaScript */
+                position: static; /* Stay in place */
+                white-space: nowrap;
+                overflow-x: auto; /* Disable horizontal scroll */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+            }
+
+            /* The button used to open the sidebar */
+            .openbtn {
+                font-size: 20px;
+                z-index: 1; /* Stay on top */
+            }
+
+            /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+            #main {
+                transition: margin-left .5s; /* If you want a transition effect */
+                padding: 20px;
+            }
+
+            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+            @media screen and (max-height: 450px) {
+                .sidebar {padding-top: 15px;}
+                .sidebar a {font-size: 18px;}
+            }
         </style>
 
     </head>
-    <body style="overflow: scroll;">
-        <div class="container-fluid mh-100" style="width: 100%; height: auto;">
-            <div class="row">
-                <div class="col-xl-2 bg-light border border-2">
-                    @include('layouts.sidebar')
-                </div>
-                <div class="col-xl-10 align-self-center mx-auto">
-                    <div class="container bg-light border border-2 py-3">
-                        @yield('content')
-                    </div>
+    <body style="overflow: auto;">
+        <div class="row vh-100">
+            <div class="col-xl-2 bg-light border border-2 m-1 p-4 sidebar" id="mySidebar">
+                @include('layouts.sidebar')
+            </div>
+            <div class="col-xl-1 m-1 p-1">
+                <button class="btn btn-light border" onclick="openNav()" type="button"> <i class="fas fa-bars"></i> </button>
+            </div>
+            <div class="col-xl-9 align-self-center mx-auto" id="main">
+                <div class="container bg-light border border-2 py-3">
+                    @yield('content')
                 </div>
             </div>
         </div>
+        <script>
+            /* Set the width of the sidebar to 270px and the left margin of the page content to 270px */
+            function openNav() {
+                if(document.getElementById("mySidebar").style.width == "0px"){
+                    document.getElementById("mySidebar").style.width = "270px";
+                    document.getElementById("mySidebar").style.opacity = "1";
+                    document.getElementById("main").style.marginLeft = "270px";
+                }
+                else{
+                    document.getElementById("mySidebar").style.width = "0px";
+                    document.getElementById("mySidebar").style.opacity = "0";
+                    document.getElementById("main").style.marginLeft = "0px";
+                }
+            }
+        </script>
     </body>
 </html>
