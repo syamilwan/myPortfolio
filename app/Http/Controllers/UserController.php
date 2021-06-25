@@ -9,15 +9,22 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $users = User::all();
-
         return view('user_list', compact('users'));
+    }
+    
+    public function editUserDetail(){
+        return view('users.dashboard.modals.tabs.edit_user_details');
+    }
+    public function editProfilePicture(){
+        return view('users.dashboard.modals.tabs.edit_profile_picture');
+    }
+    public function editResume(){
+        return view('users.dashboard.modals.tabs.edit_resume');
     }
 
     public function changeProfilePicture(Request $request){
-
         $this->validate($request,[
             'profilePicture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
@@ -47,7 +54,6 @@ class UserController extends Controller
     }
 
     public function changeResume(Request $request){
-
         $this->validate($request,[
             'resume' => 'required|mimes:pdf'
         ]);
@@ -79,7 +85,6 @@ class UserController extends Controller
     public function downloadUserResume(Request $request){
         return response()->download($request->user()->resume);
     }
-
 
 }
 

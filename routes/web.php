@@ -24,8 +24,11 @@ Route::get('/downloadResume', function() {
     return response()->download('resume.pdf');
 });
 
-//Dashboard
+//Dashboard -- todo: group prefix
 Route::get('/dashboard', function () { return view('users.dashboard.view'); })->middleware(['auth']);
+Route::get('/editUserDetail', [UserController::class, 'editUserDetail'])->middleware(['auth'])->name('editUserDetail');
+Route::get('/editProfilePicture', [UserController::class, 'editProfilePicture'])->middleware(['auth'])->name('editProfilePicture');
+Route::get('/editResume', [UserController::class, 'editResume'])->middleware(['auth'])->name('editResume');
 Route::post('/changeProfilePicture', [UserController::class, 'changeProfilePicture'])->middleware(['auth']);
 Route::post('/changeResume', [UserController::class, 'changeResume'])->middleware(['auth']);
 Route::get('/downloadUserResume', [UserController::class, 'downloadUserResume'])->middleware(['auth']);
@@ -33,7 +36,7 @@ Route::get('/downloadUserResume', [UserController::class, 'downloadUserResume'])
 //Academic
 Route::prefix('academic')->group(function () {
     Route::get('/', [AcademicController::class, 'index'] )->middleware(['auth'])->name('academic.list');
-
+    //Academic Details
     Route::prefix('detail')->group(function () {
         Route::get('/{academic_id}', [AcademicController::class, 'view'])->middleware(['auth'])->name('academic.view');
         Route::post('/add', [AcademicController::class, 'add'])->middleware(['auth']);

@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <!-- jquery -->
+        <!-- JQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
         <style>
@@ -38,69 +38,77 @@
                 -moz-user-select: none;
                 user-select: none;
             }
+            .custom_center_all {
+                display: grid;
+                justify-content: center;
+                align-content: center;
+            }
+            .custom_end_all {
+                display: grid;
+                justify-content: end;
+                align-content: end;
+            }
+            .sidebar {
+                height: 100%; /* 100% Full-height */
+                width: 270px; /* 0 width - change this with JavaScript */
+                position: static; /* Stay in place */
+                white-space: nowrap;
+                overflow: hidden; /* Disable horizontal scroll */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+            }
+            .active{
+                background-color: #A9CCE3 !important;
+                font-weight: bold !important;
+            }
+            .inline_display{ display: inline-block; }
+            .pointer{ cursor: pointer; }
+
+            #main {
+                transition: margin-left .5s; /* If you want a transition effect */
+                padding: 20px;
+            }
 
             @media (min-width: 768px) {
                 .bd-placeholder-img-lg {
                 font-size: 3.5rem;
                 }
             }
-            /* The sidebar menu */
-            .sidebar {
-                height: 100%; /* 100% Full-height */
-                width: 270px; /* 0 width - change this with JavaScript */
-                position: static; /* Stay in place */
-                white-space: nowrap;
-                overflow-x: auto; /* Disable horizontal scroll */
-                transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-            }
-
-            /* The button used to open the sidebar */
-            .openbtn {
-                font-size: 20px;
-                z-index: 1; /* Stay on top */
-            }
-
-            /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-            #main {
-                transition: margin-left .5s; /* If you want a transition effect */
-                padding: 20px;
-            }
-
-            /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-            @media screen and (max-height: 450px) {
-                .sidebar {padding-top: 15px;}
-                .sidebar a {font-size: 18px;}
-            }
         </style>
 
     </head>
-    <body style="overflow: auto;">
+    <body style="overflow: hidden;">
         <div class="row vh-100">
-            <div class="col-xl-2 bg-light border border-2 m-1 p-4 sidebar" id="mySidebar">
-                @include('layouts.sidebar')
+            <div id="mainSidebar" class="col-xl-2 bg-light border border-2 m-1 p-4 sidebar">
+                <div id="sidebarContent" class="bg-light m-1 p-1" style="height: 100%;"> @include('layouts.sidebar') </div>
             </div>
-            <div class="col-xl-1 m-1 p-1">
-                <button class="btn btn-light border" onclick="openNav()" type="button"> <i class="fas fa-bars"></i> </button>
+            <div class="col-xl-1 mt-1 g-0" style="width: 0px">
+                <button class="btn btn-light border border-2" id="sidebarButton" onclick="openNav()" type="button"> <i class="fas fa-bars"></i> </button>
             </div>
             <div class="col-xl-9 align-self-center mx-auto" id="main">
-                <div class="container bg-light border border-2 py-3">
-                    @yield('content')
-                </div>
+                <div class="container bg-light border border-2 py-3"> @yield('content') </div>
             </div>
         </div>
         <script>
-            /* Set the width of the sidebar to 270px and the left margin of the page content to 270px */
             function openNav() {
-                if(document.getElementById("mySidebar").style.width == "0px"){
-                    document.getElementById("mySidebar").style.width = "270px";
-                    document.getElementById("mySidebar").style.opacity = "1";
-                    document.getElementById("main").style.marginLeft = "270px";
+                if(document.getElementById("mainSidebar").style.width == "0px"){
+                    document.getElementById("sidebarContent").style.display = "block";
+                    document.getElementById("sidebarButton").style.opacity = "1";
+                    setTimeout(showSidebar, 250);
                 }
                 else{
-                    document.getElementById("mySidebar").style.width = "0px";
-                    document.getElementById("mySidebar").style.opacity = "0";
+                    document.getElementById("mainSidebar").style.width = "0px";
+                    document.getElementById("mainSidebar").style.opacity = "0";
                     document.getElementById("main").style.marginLeft = "0px";
+                    setTimeout(hideSidebar, 250);
                 }
+            }
+            function hideSidebar(){
+                document.getElementById("sidebarContent").style.display = "none";
+            }
+            function showSidebar(){
+                document.getElementById("mainSidebar").style.width = "270px";
+                document.getElementById("mainSidebar").style.opacity = "1";
+                document.getElementById("main").style.marginLeft = "270px";
             }
         </script>
     </body>

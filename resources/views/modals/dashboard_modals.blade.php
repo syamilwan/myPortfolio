@@ -6,18 +6,12 @@
 		<h5 class="modal-title" id="exampleModalLabel">Profile Picture</h5>
 		<a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
 	</div>
-
-	<form action="/changeProfilePicture" method="POST" enctype="multipart/form-data">
-		@csrf
-		<div class="modal-body">
-			<div class="d-flex justify-content-center"><img src="{{ URL::asset(auth()->user()->profile_picture)}}" alt="profile picture"/></div><br/>
-			<div class="d-flex justify-content-center"><input type="file" name="profilePicture"></div>
-		</div>
-		<div class="modal-footer">
-			<input type="submit" value="Change" class="btn btn-outline-success">
-			<a type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</a>
-		</div>
-	</form>
+	<div class="modal-body">
+		<div class="d-flex justify-content-center"><img src="{{ URL::asset(auth()->user()->profile_picture)}}" alt="profile picture"/></div><br/>
+	</div>
+	<div class="modal-footer">
+		<a type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</a>
+	</div>
 	</div>
 </div>
 </div>
@@ -33,14 +27,9 @@
 	<div class="modal-body">
 		<div id="resume"> <!-- Display --> </div>
 	</div>
-	<form action="/changeResume" method="POST" enctype="multipart/form-data">
-	@csrf
-		<div class="modal-footer">
-			<div class="d-flex justify-content-center"><input type="file" name="resume" accept=".pdf"></div>
-			<input type="submit" value="Change" class="btn btn-outline-success">
-			<a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
-		</div>
-	</form>
+	<div class="modal-footer">
+		<a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+	</div>
 	</div>
 </div>
 </div>
